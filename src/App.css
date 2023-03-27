@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   padding: 25px;
-  width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -63,4 +62,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+button {
+  cursor: pointer;
 }
