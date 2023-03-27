@@ -1,7 +1,6 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import {
   candidatesReducer,
-  initializer,
   initialState,
   State,
   Action,
@@ -16,6 +15,13 @@ export const CandidateContext = createContext<Context>({
   candidates: initialState,
   dispatch: (() => {}) as React.Dispatch<Action>,
 });
+
+export const initializer = (): State => {
+  const json: string =
+    localStorage.getItem("localCandidates") || JSON.stringify(initialState);
+  const parsed: State = JSON.parse(json) as State;
+  return parsed;
+};
 
 const CandidateProvider = ({ children }: { children: JSX.Element }) => {
   const [candidates, dispatch] = useReducer(

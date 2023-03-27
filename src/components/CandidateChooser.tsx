@@ -1,10 +1,18 @@
+import "./CandidateChooser.css";
 import { useState, useEffect } from "react";
 import { Candidate } from "../types";
 import CandidateCard from "./CandidateCard";
 import CandidateForm from "./CandidateForm";
+import CandidatesList from "./CandidatesList";
+
+enum Page {
+  FindNew,
+  Review,
+}
 
 const CandidateChooser = (): React.ReactElement => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<Page>(Page.FindNew);
 
   const [currentCandidate, setCurrentCandidate] = useState<Candidate | null>(
     null
@@ -27,15 +35,37 @@ const CandidateChooser = (): React.ReactElement => {
     }
   };
 
+  const onCandidateSubmitted = (): void => {
+    setCurrentCandidate(null);
+    fetchNextCandidate();
+  };
+
   return (
-    <div>
-      {!isLoading && currentCandidate ? (
+    <div className="page">
+      <div className="tabs">
+        <button onClick={() => setCurrentPage(Page.FindNew)} type="button">
+          Find New Candidates
+        </button>
+        <button onClick={() => setCurrentPage(Page.Review)} type="button">
+          Review Submissions
+        </button>
+      </div>
+      {currentPage === Page.FindNew ? (
         <div>
-          <CandidateCard candidate={currentCandidate} />
-          <CandidateForm candidate={currentCandidate} />
+          {!isLoading && currentCandidate ? (
+            <div>
+              <CandidateCard candidate={currentCandidate} />
+              <CandidateForm
+                candidate={currentCandidate}
+                onSubmit={onCandidateSubmitted}
+              />
+            </div>
+          ) : (
+            <div>Loading...</div>
+          )}
         </div>
       ) : (
-        <div>Loading...</div>
+        <CandidatesList />
       )}
     </div>
   );

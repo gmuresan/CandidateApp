@@ -1,0 +1,18 @@
+.tabs {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.tabs button {
+  color: blue;
+  margin-right: 25px;
+}
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
