@@ -1,6 +1,6 @@
 import { Candidate } from "../types";
 
-enum CandidateStatus {
+export enum CandidateStatus {
   Approved,
   Rejected,
 }

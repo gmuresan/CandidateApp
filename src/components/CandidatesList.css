@@ -12,3 +12,7 @@ button {
   width: 100%;
   max-width: 600px;
 }
+
+.status {
+  font-weight: 900;
+}
