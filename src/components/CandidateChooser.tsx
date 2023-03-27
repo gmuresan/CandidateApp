@@ -51,9 +51,9 @@ const CandidateChooser = (): React.ReactElement => {
         </button>
       </div>
       {currentPage === Page.FindNew ? (
-        <div>
+        <>
           {!isLoading && currentCandidate ? (
-            <div>
+            <div className="cardPage">
               <CandidateCard candidate={currentCandidate} />
               <CandidateForm
                 candidate={currentCandidate}
@@ -63,7 +63,7 @@ const CandidateChooser = (): React.ReactElement => {
           ) : (
             <div>Loading...</div>
           )}
-        </div>
+        </>
       ) : (
         <CandidatesList />
       )}

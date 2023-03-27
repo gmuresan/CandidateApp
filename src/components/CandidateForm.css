@@ -6,6 +6,7 @@ form {
   border-radius: 10px;
   padding: 10px 10px;
   margin-top: 20px;
+  width: 100%;
 }
 
 .buttons {
@@ -21,6 +22,11 @@ form {
   color: white;
   width: 100px;
   margin-bottom: 10px;
+  flex: 1;
+}
+
+.buttons button:first-child {
+  margin-right: 20px;
 }
 
 .buttons .reject {

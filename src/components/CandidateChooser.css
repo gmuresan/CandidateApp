@@ -8,6 +8,8 @@
 .tabs button {
   color: blue;
   margin-right: 25px;
+  width: 200px;
+  border: 0;
 }
 
 .page {
@@ -15,4 +17,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+
+.cardPage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
