@@ -18,7 +18,8 @@ export const CandidateContext = createContext<Context>({
 
 export const initializer = (): State => {
   const json: string =
-    localStorage.getItem("localCandidates") || JSON.stringify(initialState);
+    window.localStorage.getItem("localCandidates") ||
+    JSON.stringify(initialState);
   const parsed: State = JSON.parse(json) as State;
   return parsed;
 };
@@ -31,7 +32,7 @@ const CandidateProvider = ({ children }: { children: JSX.Element }) => {
   );
 
   useEffect(() => {
-    localStorage.setItem("localCandidates", JSON.stringify(candidates));
+    window.localStorage.setItem("localCandidates", JSON.stringify(candidates));
   }, [candidates]);
 
   return (
