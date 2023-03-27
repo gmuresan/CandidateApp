@@ -13,7 +13,7 @@ describe("CandidateCard", () => {
       country: "United States",
     },
     picture: { large: "https://via.placeholder.com/150" },
-  };
+  } as any as Candidate;
 
   test("renders candidate image", () => {
     render(<CandidateCard candidate={candidate} />);

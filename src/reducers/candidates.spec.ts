@@ -6,9 +6,10 @@ import {
   initialState,
   CandidateStatus,
 } from "./candidates";
+import { Candidate } from "../types";
 
 describe("candidatesReducer", () => {
-  const candidate = { id: "1", name: "John Doe" };
+  const candidate = { id: "2", name: "John Doe" } as any as Candidate;
 
   test("APPROVE_CANDIDATE action", () => {
     const action = approveCandidate(candidate, "Great skills");

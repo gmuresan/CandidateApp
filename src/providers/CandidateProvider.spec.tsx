@@ -5,7 +5,7 @@ import { approveCandidate } from "../reducers/candidates";
 import { Candidate } from "../types";
 
 var localStorageMock = (function () {
-  var store = {
+  var store: Record<string, any> = {
     localCandidates: JSON.stringify({
       submissions: [
         {
@@ -17,16 +17,16 @@ var localStorageMock = (function () {
     }),
   };
   return {
-    getItem: function (key) {
+    getItem: function (key: string) {
       return store[key];
     },
-    setItem: function (key, value) {
+    setItem: function (key: string, value: any) {
       store[key] = value.toString();
     },
     clear: function () {
       store = {};
     },
-    removeItem: function (key) {
+    removeItem: function (key: string) {
       delete store[key];
     },
   };
@@ -45,7 +45,7 @@ const TestComponent = () => {
       country: "United States",
     },
     picture: { large: "https://via.placeholder.com/150" },
-  };
+  } as any as Candidate;
 
   return (
     <div>

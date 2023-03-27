@@ -9,9 +9,9 @@ export type Candidate = {
     value: string;
   };
   picture: {
-    large: string;
-    medium: string;
-    thumbnail: string;
+    large?: string;
+    medium?: string;
+    thumbnail?: string;
   };
   email: string;
   dob: {
